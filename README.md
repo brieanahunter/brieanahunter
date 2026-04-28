@@ -1,5 +1,5 @@
 ## Hi there 👋
-# 👋 Hi, I'm Brieana Hunter
+# 👋 Hi, I'm Brieana
 
 Computer Science Student  
 
