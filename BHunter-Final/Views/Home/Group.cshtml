@@ -1,0 +1,207 @@
+﻿@model BHunter_Final.Models.GroupPage
+@{
+    Layout = null;
+    ViewData["Title"] = "Group";
+    var sidebarUser = ViewBag.SidebarUser as BHunter_Final.Models.SidebarUserViewModel;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Group</title>
+    <link rel="stylesheet" href="~/css/group.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <title>The Silver Screen Society - Group</title>
+</head>
+<body>
+    <partial name="_Sidebar" model="sidebarUser" />
+    <div class="group-page">
+
+        @if (Model.CurrentUser.GroupId == null)
+        {
+            <div class="no-group-section">
+                <div class="header-row">
+                    <h1>Join a Group</h1>
+                    <button type="button" class="create-btn" onclick="openCreateGroupModal()">Create Your Own Group</button>
+                </div>
+
+                <div class="group-list">
+                    @foreach (var group in Model.AvailableGroups)
+                    {
+                        <div class="group-card">
+                            <h2>@group.GroupName</h2>
+                            <p>@group.Description</p>
+                            <p><strong>Members:</strong> @group.Users.Count</p>
+
+                            @if (group.MovieOfTheWeek != null)
+                            {
+                                <div class="group-preview-movie">
+                                    <img src="@group.MovieOfTheWeek.PosterImage" alt="@group.MovieOfTheWeek.Title" />
+                                    <span>@group.MovieOfTheWeek.Title</span>
+                                </div>
+                            }
+
+                            <form asp-action="JoinGroup" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="groupId" value="@group.GroupId" />
+                                <button type="submit" class="join-btn">Join Group</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div id="createGroupModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeCreateGroupModal()">&times;</span>
+                    <h2>Create Group</h2>
+
+                    <form asp-action="CreateGroup" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <input asp-for="NewGroupName" placeholder="Group name" class="form-input" />
+                        <textarea asp-for="NewGroupDescription" placeholder="Description" class="form-input"></textarea>
+
+                        <button type="submit" class="create-btn">Create</button>
+                    </form>
+                </div>
+            </div>
+        }
+        else if (Model.CurrentGroup != null)
+        {
+            <div class="group-dashboard">
+                <div class="group-top">
+
+                    <div class="leave-btn-container">
+                        <form asp-action="ResetFavoriteTeams" method="post" class="leave-btn-container">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="mini-btn leave-btn">
+                                <i class="fa fa-sign-out"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                   
+                    <div class="movie-of-week-card">
+                        <h2>This Week’s Movie</h2>
+
+                        @if (Model.CurrentGroup.WeekStartDate != null)
+                        {
+                            <p class="week-date">
+                                Week of @Model.CurrentGroup.WeekStartDate?.ToString("MMMM dd, yyyy")
+                            </p>
+                        }
+
+                        @if (Model.CurrentGroup.MovieOfTheWeek != null)
+                        {
+                            <img src="@Model.CurrentGroup.MovieOfTheWeek.PosterImage"
+                                 alt="@Model.CurrentGroup.MovieOfTheWeek.Title"
+                                 class="movie-of-week-poster" />
+
+                            <h3>@Model.CurrentGroup.MovieOfTheWeek.Title</h3>
+                        }
+                        else
+                        {
+                            <p>No movie selected yet.</p>
+                        }
+
+                        @if (Model.IsGroupCreator)
+                        {
+                            <form asp-action="SetMovieOfTheWeek" method="post" class="movie-picker-form">
+                                @Html.AntiForgeryToken()
+
+                                <select name="selectedMovieId" class="form-input">
+                                    <option value="">Select a movie</option>
+                                    @foreach (var movie in Model.Movies)
+                                    {
+                                        <option value="@movie.MovieId">@movie.Title</option>
+                                    }
+                                </select>
+
+                                <button type="submit" class="save-btn">Set Movie</button>
+                            </form>
+                        }
+                    </div>
+
+                    <div class="members-card">
+                        <h2>Members</h2>
+
+                        @foreach (var member in Model.CurrentGroup.Users)
+                        {
+                            <div class="member-row">
+                                <div class="member-info">
+                                    <img src="@(string.IsNullOrEmpty(member.ProfileImagePath) ? "/images/defaultprofile.png" : member.ProfileImagePath)"
+                                         alt="Profile"
+                                         class="member-pic" />
+                                    <span>@member.FirstName @member.LastName</span>
+                                </div>
+
+                                @if (Model.IsGroupCreator && member.UserId != Model.CurrentGroup.CreatedByUserId)
+                                {
+                                    <form asp-action="RemoveUserFromGroup" method="post">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="removeUserId" value="@member.UserId" />
+                                        <button type="submit" class="remove-btn">Remove</button>
+                                    </form>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="messages-card">
+                    <h2>Messages</h2>
+
+                    <div class="messages-list">
+                        @foreach (var message in Model.Messages)
+                        {
+                            <div class="message-item">
+                                <img src="@(string.IsNullOrEmpty(message.User?.ProfileImagePath) ? "/images/defaultprofile.png" : message.User.ProfileImagePath)"
+                                     alt="Profile"
+                                     class="message-pic" />
+
+                                <div class="message-content">
+                                    <div class="message-header">
+                                        <strong>@message.User?.FirstName @message.User?.LastName</strong>
+                                        <span class="message-time">@message.SentAt.ToString("MMM dd, yyyy h:mm tt")</span>
+                                    </div>
+                                    <p>@message.MessageText</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <form asp-action="SendMessage" method="post" class="message-form">
+                        @Html.AntiForgeryToken()
+                        <textarea asp-for="NewMessageText" placeholder="Type a message..." class="form-input"></textarea>
+                        <button type="submit" class="send-btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script>
+            function openCreateGroupModal() {
+                document.getElementById("createGroupModal").style.display = "flex";
+            }
+
+            function closeCreateGroupModal() {
+                document.getElementById("createGroupModal").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                const modal = document.getElementById("createGroupModal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+﻿@model BHunter_Final.Models.User
+
+@{
+    Layout = null;
+    ViewData["Title"] = "User";
+    var sidebarUser = ViewBag.SidebarUser as BHunter_Final.Models.SidebarUserViewModel;
+
+    var favoriteMovies = ViewBag.FavoriteMovies as List<BHunter_Final.Models.Movie> ?? new List<BHunter_Final.Models.Movie>();
+
+    string GetGenreName(int? genreId)
+    {
+        return genreId switch
+        {
+            1 => "Action",
+            2 => "Adventure",
+            3 => "Comedy",
+            4 => "Crime/Gangster",
+            5 => "Documentary",
+            6 => "Drama",
+            7 => "Fantasy",
+            8 => "Horror",
+            9 => "Musical",
+            10 => "Mystery",
+            11 => "Romance",
+            12 => "Sci-Fi",
+            13 => "Thriller",
+            14 => "Western",
+            15 => "War",
+            16 => "Sports",
+            _ => "No favorite genre selected"
+        };
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Silver Screen Society - User</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user.css" asp-append-version="true" />
+</head>
+<body>
+    <partial name="_Sidebar" model="sidebarUser" />
+
+    <main class="user-page">
+        <div class="user-layout">
+
+            <!-- LEFT SIDE -->
+            <section class="profile-panel">
+                <div class="profile-card">
+                    <h1 class="section-title">Profile</h1>
+
+                    <div class="profile-image-wrap">
+                        @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+                        {
+                            <img src="@(Url.Content(Model.ProfileImagePath))" alt="Profile Picture" class="profile-image" />
+                        }
+                        else
+                        {
+                            <img src="~/images/default-profile.png" alt="Default Profile Picture" class="profile-image" />
+                        }
+                    </div>
+
+                    <h2 class="profile-name">@Model.FirstName @Model.LastName</h2>
+                    <p class="profile-email">@Model.Email</p>
+
+                 
+
+                    <div class="profile-buttons">
+                        <a asp-controller="Home" asp-action="Settings" class="profile-btn">
+                            <i class="fa fa-user"></i> Edit Profile
+                        </a>
+
+                        <a asp-controller="Home" asp-action="EditFavorites" class="profile-btn">
+                            <i class="fa fa-heart"></i> Edit Favorites
+                        </a>
+
+                        <a asp-controller="Home" asp-action="Group" class="profile-btn">
+                            <i class="fa fa-users"></i> My Groups
+                        </a>
+
+                        <a asp-controller="Home" asp-action="Logout" class="profile-btn logout-btn">
+                            <i class="fa fa-sign-out"></i> Sign Out
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT SIDE -->
+            <section class="favorites-panel">
+                <div class="favorites-card">
+                    <div class="favorites-header">
+                        <h2>Favorite Movies</h2>
+
+                        <div class="favorites-actions">
+                            <a asp-controller="Home" asp-action="AddFavoriteMovie" class="mini-btn">
+                                <i class="fa fa-plus"></i> Add
+                            </a>
+                            <a asp-controller="Home" asp-action="EditFavorites" class="mini-btn">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>
+                        </div>
+                    </div>
+
+                    @if (favoriteMovies.Any())
+                    {
+                        <div class="slideshow-container">
+                            <button class="slide-arrow left-arrow" type="button" onclick="changeSlide(-1)">
+                                &#10094;
+                            </button>
+
+                            <div class="slides-window">
+                                @for (int i = 0; i < favoriteMovies.Count; i++)
+                                {
+                                    var movie = favoriteMovies[i];
+
+                                    <div class="movie-slide @(i == 0 ? "active" : "")">
+                                        <div class="favorite-movie-card">
+                                            <img src="@(string.IsNullOrWhiteSpace(movie.PosterImage) ? "/images/no-poster.png" : movie.PosterImage)"
+                                                 alt="@(movie.Title ?? "Untitled Movie")"
+                                                 class="favorite-poster" />
+
+                                            <div class="favorite-info">
+                                                <h3>@(movie.Title ?? "Untitled Movie")</h3>
+                                                <p><strong>Rating:</strong> @(movie.StarRating?.ToString() ?? "N/A")</p>
+                                                <p><strong>Year:</strong> @(movie.ReleaseDate?.ToString() ?? "N/A")</p>
+
+                                                <a asp-controller="Home" asp-action="Details" asp-route-id="@movie.MovieId" class="details-btn">
+                                                    View Details
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <button class="slide-arrow right-arrow" type="button" onclick="changeSlide(1)">
+                                &#10095;
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="no-favorites">
+                            <p>No favorite movies added yet.</p>
+                            <a asp-controller="Home" asp-action="AddFavoriteMovie" class="mini-btn">
+                                <i class="fa fa-plus"></i> Add Favorite Movie
+                            </a>
+                        </div>
+                    }
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".movie-slide");
+
+            function showSlide(index) {
+                if (slides.length === 0) return;
+
+                if (index >= slides.length) currentSlide = 0;
+                else if (index < 0) currentSlide = slides.length - 1;
+                else currentSlide = index;
+
+                slides.forEach(slide => slide.classList.remove("active"));
+                slides[currentSlide].classList.add("active");
+            }
+
+            function changeSlide(step) {
+                showSlide(currentSlide + step);
+            }
+    </script>
+</body>
+</html>

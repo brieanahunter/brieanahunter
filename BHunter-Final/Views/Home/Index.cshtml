@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BHunter_Final.Models.Movie>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Home Page";
+    var sidebarUser = ViewBag.SidebarUser as BHunter_Final.Models.SidebarUserViewModel;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Silver Screen Society</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+</head>
+<body>
+    <partial name="_Sidebar" model="sidebarUser" />
+
+    <main class="main-content">
+        <div class="top-toolbar">
+            <form method="get" asp-controller="Home" asp-action="Index" class="toolbar-form">
+                <select class="dropdown" name="genreId" onchange="this.form.submit()">
+                    <option value="">All</option>
+                    <option value="1" selected="@(Context.Request.Query["genreId"] == "1")">Action</option>
+                    <option value="2" selected="@(Context.Request.Query["genreId"] == "2")">Adventure</option>
+                    <option value="3" selected="@(Context.Request.Query["genreId"] == "3")">Comedy</option>
+                    <option value="4" selected="@(Context.Request.Query["genreId"] == "4")">Crime/Gangster</option>
+                    <option value="5" selected="@(Context.Request.Query["genreId"] == "5")">Documentary</option>
+                    <option value="6" selected="@(Context.Request.Query["genreId"] == "6")">Drama</option>
+                    <option value="7" selected="@(Context.Request.Query["genreId"] == "7")">Fantasy</option>
+                    <option value="8" selected="@(Context.Request.Query["genreId"] == "8")">Horror</option>
+                    <option value="9" selected="@(Context.Request.Query["genreId"] == "9")">Musical</option>
+                    <option value="10" selected="@(Context.Request.Query["genreId"] == "10")">Mystery</option>
+                    <option value="11" selected="@(Context.Request.Query["genreId"] == "11")">Romance</option>
+                    <option value="12" selected="@(Context.Request.Query["genreId"] == "12")">Sci-Fi</option>
+                    <option value="13" selected="@(Context.Request.Query["genreId"] == "13")">Thriller</option>
+                    <option value="14" selected="@(Context.Request.Query["genreId"] == "14")">Western</option>
+                    <option value="15" selected="@(Context.Request.Query["genreId"] == "15")">War</option>
+                    <option value="16" selected="@(Context.Request.Query["genreId"] == "16")">Sports</option>
+                </select>
+
+                <div class="search">
+                    <input type="text"
+                           name="search"
+                           placeholder="Search..."
+                           value="@Context.Request.Query["search"]" />
+                    <button type="submit" aria-label="Search">
+                        <i class="search-icon"></i>
+                    </button>
+                </div>
+
+                <a asp-controller="Home" asp-action="Group" class="messages-btn" aria-label="Messages">
+                    <i class="fa fa-comments-o"></i>
+                </a>
+            </form>
+        </div>
+
+        <div class="movie-grid">
+            @foreach (var movie in Model)
+            {
+                <div class="movie-card">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@movie.MovieId">
+                        <img src="@(string.IsNullOrWhiteSpace(movie.PosterImage) ? "/images/no-poster.png" : movie.PosterImage)"
+                             alt="@(movie.Title ?? "Untitled Movie")"
+                             class="movie-poster" />
+                    </a>
+
+                    <div class="movie-info">
+                        <h3>@(movie.Title ?? "Untitled Movie")</h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+</html>

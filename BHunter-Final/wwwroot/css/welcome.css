@@ -1,0 +1,339 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Lucida Calligraphy';
+    background: #a6a6a6;
+}
+
+.welcome-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    background: #a6a6a6;
+    overflow: hidden;
+}
+
+/* Projector */
+.projector-area {
+    position: absolute;
+    left: 3%;
+    top: 22%;
+    width: 22%;
+    z-index: 2;
+}
+
+.projector-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Main film strip section */
+.film-strip-container {
+    position: absolute;
+    top: 8%;
+    left: 31%;
+    width: 62%;
+    height: 62%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+
+.film-strip {
+    position: relative;
+    animation: filmFlicker 2.8s infinite steps(1);
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0a0a0a 0%, #1c1c1c 7%, #f2f2f2 18%, #ffffff 50%, #e8e8e8 78%, #111 100%);
+    box-shadow: 0 0 40px rgba(255,255,255,0.08), 0 0 80px rgba(255,255,255,0.05);
+    transition: transform 0.85s ease-in-out, opacity 0.85s ease-in-out, filter 0.85s ease-in-out;
+    transform: translateX(0);
+}
+
+    .film-strip.slide-left {
+        transform: translateX(-120vw) rotate(-2deg);
+        opacity: 0.75;
+        filter: blur(2px);
+    }
+
+    /* grain / projection feel */
+    .film-strip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(0,0,0,0.25) 0.8px, transparent 0.8px);
+        background-size: 7px 7px;
+        opacity: 0.35;
+        pointer-events: none;
+    }
+
+    .film-strip::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient( to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.02), rgba(0,0,0,0.15) );
+        pointer-events: none;
+    }
+
+/* sprocket holes */
+.film-holes {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 14%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 2;
+}
+
+    .film-holes.top {
+        top: 0;
+    }
+
+    .film-holes.bottom {
+        bottom: 0;
+    }
+
+.hole {
+    width: 42px;
+    height: 42px;
+    border: 3px solid #e8e8e8;
+    border-radius: 10px;
+    background: #0a0a0a;
+    box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+
+
+.film-content {
+    position: absolute;
+    top: 14%;
+    bottom: 14%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-img {
+    display: block;
+    width: 38%;
+    min-width: 260px;
+    max-width: 460px;
+    margin: -90px auto 0 auto;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+
+.button-row {
+    position: absolute;
+    left: 50%;
+    bottom: 20px; /* change this number to move buttons up/down */
+    transform: translateX(-50%);
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.film-btn {
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: 700;
+    color: black;
+    padding: 18px 34px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.22);
+    border: 3px solid rgba(0,0,0,0.75);
+    box-shadow: 0 0 12px rgba(255,255,255,0.35), 0 0 24px rgba(255,255,255,0.22), 0 6px 14px rgba(0,0,0,0.28);
+    text-shadow: 0 0 6px rgba(255,255,255,0.55), 0 0 14px rgba(255,255,255,0.35);
+    backdrop-filter: blur(3px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+    .film-btn:hover {
+        transform: scale(1.06);
+        background: rgba(255,255,255,0.35);
+        box-shadow: 0 0 18px rgba(255,255,255,0.55), 0 0 38px rgba(255,255,255,0.35), 0 10px 22px rgba(0,0,0,0.35);
+    }
+
+@keyframes filmFlicker {
+    0% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    8% {
+        opacity: 0.985;
+        filter: brightness(1.02);
+    }
+
+    16% {
+        opacity: 1;
+        filter: brightness(0.99);
+    }
+
+    28% {
+        opacity: 0.992;
+        filter: brightness(1.01);
+    }
+
+    42% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    57% {
+        opacity: 0.988;
+        filter: brightness(1.03);
+    }
+
+    71% {
+        opacity: 1;
+        filter: brightness(0.98);
+    }
+
+    86% {
+        opacity: 0.994;
+        filter: brightness(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+/* Seats at the bottom */
+.theater-seats {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 28%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.seats-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+    .projector-area {
+        width: 20%;
+        top: 26%;
+    }
+
+    .film-strip-container {
+        left: 24%;
+        width: 72%;
+        height: 56%;
+    }
+
+    .film-btn {
+        font-size: 2.2rem;
+    }
+
+    .logo-img {
+        width: 46%;
+    }
+}
+
+@media (max-width: 768px) {
+    .projector-area {
+        display: none;
+    }
+
+    .film-strip-container {
+        left: 5%;
+        width: 90%;
+        top: 8%;
+        height: 56%;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .film-btn {
+        font-size: 1.8rem;
+        padding: 14px 24px;
+    }
+
+    .hole {
+        width: 26px;
+        height: 26px;
+    }
+
+    .logo-img {
+        width: 70%;
+        min-width: 180px;
+    }
+}
+
+.projector-beam {
+    position: absolute;
+    left: 18%; /* controls horizontal start (near projector) */
+    top: 26%; /* controls vertical alignment */
+
+    width: 400px; /* length of beam */
+    height: 140px;
+    background: linear-gradient( to right, rgba(255,255,220,0) 0%, rgba(255,255,220,0.15) 35%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0.05) 100% );
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    filter: blur(10px);
+    opacity: 0.6;
+    z-index: 1;
+    animation: beamPulse 3s ease-in-out infinite;
+    transition: transform 0.85s ease-in-out, opacity 0.85s ease-in-out;
+}
+
+.film-strip.slide-left {
+    transform: translateX(-100vw) scale(0.94);
+    opacity: 0.82;
+    filter: blur(1px);
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s ease, filter 1s ease;
+}
+
+@keyframes beamPulse {
+    0% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+body.page-exit .projector-beam {
+    opacity: 0.15;
+    transform: scaleX(0.95);
+    transition: transform 0.85s ease, opacity 0.85s ease;
+}
+
+body.page-exit .welcome-page {
+    transition: opacity 0.85s ease;
+}
+
+
+

@@ -1,0 +1,65 @@
+﻿@model List<BHunter_Final.Models.Favorites>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Edit Favorites";
+    var sidebarUser = ViewBag.SidebarUser as BHunter_Final.Models.SidebarUserViewModel;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Favorites</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/favorites.css" asp-append-version="true" />
+</head>
+<body>
+    <partial name="_Sidebar" model="sidebarUser" />
+
+    <main class="favorites-page">
+        <div class="favorites-list-card">
+            <div class="favorites-top">
+                <h1>Edit Favorites</h1>
+                <a asp-action="AddFavoriteMovie" class="save-btn">Add Movie</a>
+            </div>
+
+            @if (Model.Any())
+            {
+                <div class="favorites-grid">
+                    @foreach (var favorite in Model)
+                    {
+                        var movie = favorite.Movie;
+
+                        <div class="favorite-item">
+                            <img src="@(string.IsNullOrWhiteSpace(movie?.PosterImage) ? "/images/no-poster.png" : movie!.PosterImage)"
+                                 alt="@(movie?.Title ?? "Untitled Movie")"
+                                 class="favorite-item-poster" />
+
+                            <h3>@(movie?.Title ?? "Untitled Movie")</h3>
+
+                            <form asp-action="RemoveFavorite" method="post">
+                                <input type="hidden" name="movieId" value="@favorite.MovieId" />
+                                <button type="submit" class="remove-btn">Remove</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>You do not have any favorite movies yet.</p>
+            }
+
+            <div class="form-buttons">
+                <a asp-action="User" class="cancel-btn">Back to Profile</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

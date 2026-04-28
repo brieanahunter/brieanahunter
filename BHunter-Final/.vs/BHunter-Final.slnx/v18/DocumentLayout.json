@@ -1,0 +1,246 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\home\\upcomingreleases.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\home\\upcomingreleases.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\home\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\home\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\models\\upcomingreleases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:models\\upcomingreleases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\models\\addfavoritemovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:models\\addfavoritemovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\views\\home\\verifycode.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:views\\home\\verifycode.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\wwwroot\\css\\group.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:wwwroot\\css\\group.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|c:\\users\\briea\\source\\repos\\bhunter-final\\wwwroot\\css\\welcome.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{76CB4826-53B8-2855-F98B-09AEEE1D2EA5}|BHunter-Final.csproj|solutionrelative:wwwroot\\css\\welcome.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "login.css",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\login.css",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "wwwroot\\css\\login.css",
+              "ViewState": "AgIAAB4AAAAAAAAAAIBJwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-19T22:16:33.405Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T19:41:43.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Settings.cshtml",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Settings.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Settings.cshtml",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Settings.cshtml",
+              "RelativeToolTip": "Views\\Home\\Settings.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T17:41:35.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpcomingReleases.cshtml",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\UpcomingReleases.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\UpcomingReleases.cshtml",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\UpcomingReleases.cshtml",
+              "RelativeToolTip": "Views\\Home\\UpcomingReleases.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T17:07:22.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Sidebar.cshtml",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Shared\\_Sidebar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Sidebar.cshtml",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Shared\\_Sidebar.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Sidebar.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T17:06:57.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VerifyCode.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\VerifyCode.cshtml.cs",
+              "RelativeDocumentMoniker": "Views\\Home\\VerifyCode.cshtml.cs",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\VerifyCode.cshtml.cs",
+              "RelativeToolTip": "Views\\Home\\VerifyCode.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:06:54.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UpcomingReleases.cs",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Models\\UpcomingReleases.cs",
+              "RelativeDocumentMoniker": "Models\\UpcomingReleases.cs",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Models\\UpcomingReleases.cs",
+              "RelativeToolTip": "Models\\UpcomingReleases.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T17:04:20.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Details.cshtml",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Views\\Home\\Details.cshtml",
+              "RelativeToolTip": "Views\\Home\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T16:10:55.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "details.css",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\details.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\details.css",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\details.css",
+              "RelativeToolTip": "wwwroot\\css\\details.css",
+              "ViewState": "AgIAAB8BAAAAAAAAAAAcwCoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-25T16:12:25.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddFavoriteMovie.cs",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Models\\AddFavoriteMovie.cs",
+              "RelativeDocumentMoniker": "Models\\AddFavoriteMovie.cs",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Models\\AddFavoriteMovie.cs",
+              "RelativeToolTip": "Models\\AddFavoriteMovie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T04:55:55.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T04:25:50.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "welcome.css",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\welcome.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\welcome.css",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\welcome.css",
+              "RelativeToolTip": "wwwroot\\css\\welcome.css",
+              "ViewState": "AgIAAC8BAAAAAAAAAIBJwE4BAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-25T04:15:15.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "group.css",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\group.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\group.css",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\wwwroot\\css\\group.css",
+              "RelativeToolTip": "wwwroot\\css\\group.css",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAIcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-25T04:10:42.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\briea\\source\\repos\\BHunter-Final\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwNkCAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T03:24:33.328Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

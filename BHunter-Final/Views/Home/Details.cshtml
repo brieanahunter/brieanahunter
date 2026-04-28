@@ -1,0 +1,245 @@
+﻿@model BHunter_Final.Models.Movie
+
+@{
+    Layout = null;
+    ViewData["Title"] = Model.Title ?? "Movie Details";
+    var sidebarUser = ViewBag.SidebarUser as BHunter_Final.Models.SidebarUserViewModel;
+
+    string GetGenreName(int? genreId)
+    {
+        return genreId switch
+        {
+            1 => "Action",
+            2 => "Adventure",
+            3 => "Comedy",
+            4 => "Crime/Gangster",
+            5 => "Documentary",
+            6 => "Drama",
+            7 => "Fantasy",
+            8 => "Horror",
+            9 => "Musical",
+            10 => "Mystery",
+            11 => "Romance",
+            12 => "Sci-Fi",
+            13 => "Thriller",
+            14 => "Western",
+            15 => "War",
+            16 => "Sports",
+            _ => "Unknown"
+        };
+    }
+
+    string GetEmbedUrl(string? trailerUrl)
+    {
+        if (string.IsNullOrWhiteSpace(trailerUrl))
+            return "";
+
+        if (trailerUrl.Contains("youtube.com/watch?v="))
+        {
+            var videoId = trailerUrl.Split("watch?v=").Last().Split('&').First();
+            return $"https://www.youtube.com/embed/{videoId}";
+        }
+
+        if (trailerUrl.Contains("youtu.be/"))
+        {
+            var videoId = trailerUrl.Split("youtu.be/").Last().Split('?').First();
+            return $"https://www.youtube.com/embed/{videoId}";
+        }
+
+        return trailerUrl;
+    }
+
+    var embedUrl = GetEmbedUrl(Model.Trailer);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - The Silver Screen Society</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/details.css" asp-append-version="true" />
+</head>
+<body>
+    <partial name="_Sidebar" model="sidebarUser" />
+
+    <main class="details-page">
+        <div class="details-wrapper">
+
+            <a asp-controller="Home" asp-action="Index" class="back-link">
+                <i class="fa fa-arrow-left"></i> Back to Movies
+            </a>
+
+            <div class="details-stage">
+                <!-- LEFT SIDE -->
+                <div class="poster-column">
+
+                    <div class="media-switcher">
+                        <div class="marquee-frame" id="mediaFrame">
+                            <button type="button" class="toggle-trailer-btn" id="toggleTrailerBtn" title="Watch Trailer">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+
+                            <div class="bulb bulb-1"></div>
+                            <div class="bulb bulb-2"></div>
+                            <div class="bulb bulb-3"></div>
+                            <div class="bulb bulb-4"></div>
+                            <div class="bulb bulb-5"></div>
+                            <div class="bulb bulb-6"></div>
+                            <div class="bulb bulb-7"></div>
+                            <div class="bulb bulb-8"></div>
+                            <div class="bulb bulb-9"></div>
+                            <div class="bulb bulb-10"></div>
+                            <div class="bulb bulb-11"></div>
+                            <div class="bulb bulb-12"></div>
+                            <div class="bulb bulb-13"></div>
+                            <div class="bulb bulb-14"></div>
+                            <div class="bulb bulb-15"></div>
+                            <div class="bulb bulb-16"></div>
+                            <div class="bulb bulb-17"></div>
+                            <div class="bulb bulb-18"></div>
+                            <div class="bulb bulb-19"></div>
+                            <div class="bulb bulb-20"></div>
+                            <div class="bulb bulb-21"></div>
+                            <div class="bulb bulb-22"></div>
+                            <div class="bulb bulb-23"></div>
+                            <div class="bulb bulb-24"></div>
+                            <div class="bulb bulb-25"></div>
+                            <div class="bulb bulb-26"></div>
+                            <div class="bulb bulb-27"></div>
+                            <div class="bulb bulb-28"></div>
+                            <div class="bulb bulb-29"></div>
+                            <div class="bulb bulb-30"></div>
+                            <div class="bulb bulb-31"></div>
+                            <div class="bulb bulb-32"></div>
+                            <div class="bulb bulb-33"></div>
+                            <div class="bulb bulb-34"></div>
+                            <div class="bulb bulb-35"></div>
+                         
+
+                            <div class="media-inner">
+                                <div class="poster-view active" id="posterView">
+                                    <img src="@(string.IsNullOrWhiteSpace(Model.PosterImage) ? "/images/no-poster.png" : Model.PosterImage)"
+                                         alt="@(Model.Title ?? "Untitled Movie")"
+                                         class="details-poster" />
+                                </div>
+
+                                <div class="trailer-view" id="trailerView">
+                                    @if (!string.IsNullOrWhiteSpace(embedUrl))
+                                    {
+                                        <iframe src="@embedUrl"
+                                                title="@(Model.Title ?? "Movie Trailer") Trailer"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
+                                        </iframe>
+                                    }
+                                    else
+                                    {
+                                        <div class="no-trailer">No trailer available.</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAST -->
+                    <div class="cast-section">
+                        <h2>Cast</h2>
+
+                        @if (Model.Cast != null && Model.Cast.Any())
+                        {
+                            <div class="cast-grid">
+                                @foreach (var cast in Model.Cast)
+                                {
+                                    <div class="cast-card">
+                                        <div class="star-shape">
+                                            <span>@cast.ActorName</span>
+                                        </div>
+                                        <p class="character-name">@cast.CharacterName</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="no-cast">No cast information available yet.</p>
+                        }
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="info-section">
+                    <div class="movie-plaque">
+                        <h1 class="movie-title">@((Model.Title ?? "Untitled Movie").ToUpper())</h1>
+
+                        <div class="movie-meta">
+                            <span><strong>Rating:</strong> @(Model.StarRating?.ToString() ?? "N/A")</span>
+                            <span><strong>Maturity:</strong> @(string.IsNullOrWhiteSpace(Model.Maturity) ? "N/A" : Model.Maturity)</span>
+                            <span><strong>Genre:</strong> @GetGenreName(Model.GenreId)</span>
+                            <span><strong>Year:</strong> @(Model.ReleaseDate?.ToString() ?? "N/A")</span>
+                            <span><strong>Runtime:</strong> @(string.IsNullOrWhiteSpace(Model.Runtime) ? "N/A" : Model.Runtime)</span>
+                        </div>
+
+                        <div class="movie-description">
+                            <h2>Description</h2>
+                            <p>
+                                @(string.IsNullOrWhiteSpace(Model.Description)
+                                    ? "No description available for this movie yet."
+                                    : Model.Description)
+                            </p>
+                        </div>
+
+                        <div class="movie-actions">
+                            <button type="button" class="movie-btn trailer-btn" id="watchTrailerBtn">
+                                <i class="fa fa-play"></i> Watch Trailer
+                            </button>
+
+                            <a asp-controller="Home" asp-action="Index" class="movie-btn secondary-btn">
+                                Browse More Movies
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+            const posterView = document.getElementById("posterView");
+            const trailerView = document.getElementById("trailerView");
+            const watchTrailerBtn = document.getElementById("watchTrailerBtn");
+            const toggleTrailerBtn = document.getElementById("toggleTrailerBtn");
+
+            function showTrailer() {
+                posterView.classList.remove("active");
+                trailerView.classList.add("active");
+            }
+
+            function showPoster() {
+                trailerView.classList.remove("active");
+                posterView.classList.add("active");
+            }
+
+            watchTrailerBtn.addEventListener("click", function () {
+                if (trailerView.classList.contains("active")) {
+                    showPoster();
+                } else {
+                    showTrailer();
+                }
+            });
+
+            toggleTrailerBtn.addEventListener("click", function () {
+                if (trailerView.classList.contains("active")) {
+                    showPoster();
+                } else {
+                    showTrailer();
+                }
+            });
+    </script>
+</body>
+</html>

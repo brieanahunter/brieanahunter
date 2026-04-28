@@ -1,0 +1,58 @@
+﻿@model BHunter_Final.Models.SidebarUserViewModel
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <img src="~/images/SilverScreenLogo.png" alt="Logo" style="width:45%;" class="w3-round" />
+    </div>
+
+    <ul class="sidebar-links">
+        <h4>
+            <div class="menu-separator"></div>
+        </h4>
+
+        <li>
+            <a asp-controller="Home" asp-action="Index">
+                <span class="material-symbols-outlined">dashboard</span>Home
+            </a>
+        </li>
+
+        <li>
+            <a asp-controller="Home" asp-action="UpcomingReleases">
+                <span class="material-symbols-outlined">overview</span>Upcoming Releases
+            </a>
+        </li>
+
+        <li>
+            <a asp-controller="Home" asp-action="User">
+                <span class="material-symbols-outlined">account_circle</span>Profile
+            </a>
+        </li>
+
+        <li>
+            <a asp-controller="Home" asp-action="Group">
+                <span class="material-symbols-outlined">groups</span>Group
+            </a>
+        </li>
+
+        <li>
+            <a asp-controller="Home" asp-action="Settings">
+                <span class="material-symbols-outlined">settings</span>Settings
+            </a>
+        </li>
+
+        <li>
+            <a asp-controller="Home" asp-action="Logout">
+                <span class="material-symbols-outlined">logout</span>Logout
+            </a>
+        </li>
+    </ul>
+
+    <div class="user-account">
+        <div class="user-profile">
+            <img src="@(string.IsNullOrEmpty(Model?.ProfileImagePath) ? Url.Content("~/images/default-profile.png") : Url.Content(Model.ProfileImagePath))" alt="Profile Image" />
+            <div class="user-detail">
+                <h3>@Model?.FirstName @Model?.LastName</h3>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,101 @@
+﻿@model BHunter_Final.Models.CreateAccount
+
+@{
+    Layout = null;
+    ViewData["Title"] = "CreateAccount";
+}
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<div class="login-page" id="loginPage">
+    <div class="film-stage" id="filmStage">
+        <div class="film-background">
+
+            <div class="film-holes top">
+                @for (int i = 0; i < 18; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+
+            <div class="film-center">
+                <div class="form-scroll-area">
+                    <div class="login-card">
+                        <img src="~/images/SilverScreenLogo.png" alt="Silver Screen Society Logo" class="logo-img" />
+
+                        <h1 class="login-title">Create Account</h1>
+
+                        <form asp-action="CreateAccount" asp-controller="Home" method="post" enctype="multipart/form-data" class="login-form">
+                            @Html.AntiForgeryToken()
+                            <input asp-for="FirstName" type="text" placeholder="First Name" class="login-input" />
+                            <input asp-for="LastName" type="text" placeholder="Last Name" class="login-input" />
+                            <input asp-for="Email" type="email" placeholder="Email" class="login-input" />
+                            <input asp-for="Password" type="password" placeholder="Password" class="login-input" />
+
+                            <div class="form-group file-group">
+                                <label asp-for="ProfileImage" class="file-label">Profile Picture</label>
+                                <input asp-for="ProfileImage" type="file" class="form-control file-input" id="fileInput" accept="image/*" onchange="previewFile(this)" />
+                            </div>
+
+                            <div class="preview-wrapper" id="previewWrapper">
+                                <img id="imagePreview" src="#" alt="File preview" />
+                            </div>
+
+                            <button type="submit" class="login-btn">Create Account</button>
+
+                            <div class="login-links">
+                                <a asp-controller="Home" asp-action="Login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="film-holes bottom">
+                @for (int i = 0; i < 18; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filmStage = document.getElementById("filmStage");
+        const transition = sessionStorage.getItem("pageTransition");
+
+        if (transition === "film-grow") {
+            filmStage.classList.add("film-grow-start");
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    filmStage.classList.add("film-grow-play");
+                });
+            });
+
+            sessionStorage.removeItem("pageTransition");
+        }
+    });
+
+    function previewFile(input) {
+        const preview = document.getElementById("imagePreview");
+        const wrapper = document.getElementById("previewWrapper");
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                wrapper.style.display = "flex";
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = "#";
+            wrapper.style.display = "none";
+        }
+    }
+</script>

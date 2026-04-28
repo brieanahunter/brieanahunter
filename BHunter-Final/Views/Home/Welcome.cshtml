@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Welcome";
+}
+
+<link rel="stylesheet" href="~/css/welcome.css" asp-append-version="true" />
+
+<title>The Silver Screen Society</title>
+
+<div class="welcome-page">
+    <!-- Projector -->
+    <div class="projector-area">
+        <img src="~/images/Projector.png" alt="Projector" class="projector-img" />
+    </div>
+
+    <!-- light beam -->
+    <div class="projector-beam"></div>
+
+    <!-- Main film strip -->
+    <div class="film-strip-container">
+        <div class="film-strip" id="filmStrip">
+            <div class="film-holes top">
+                @for (int i = 0; i < 13; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+
+            <div class="film-content">
+                <img src="~/images/SilverScreenLogo.png" alt="Silver Screen Society Logo" class="logo-img" />
+
+                <div class="button-row">
+                    <a asp-controller="Home" asp-action="Login" class="film-btn transition-link">Login</a>
+                    <a asp-controller="Home" asp-action="CreateAccount" class="film-btn transition-link">Create Account</a>
+                </div>
+            </div>
+
+            <div class="film-holes bottom">
+                @for (int i = 0; i < 13; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Theater seats -->
+    <div class="theater-seats">
+        <img src="~/images/seats.png" alt="Movie Theater Seats" class="seats-img" />
+    </div>
+</div>
+
+<audio id="projectorAudio" controls>
+    <source src="@Url.Content("~/sounds/projector.mp3")" type="audio/mpeg" />
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("projectorAudio");
+        const filmStrip = document.getElementById("filmStrip");
+        const links = document.querySelectorAll(".transition-link");
+
+        document.addEventListener("click", function () {
+            if (audio && audio.paused) {
+                audio.play().catch(err => console.log("Audio play blocked:", err));
+            }
+        }, { once: true });
+
+        links.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetUrl = this.href;
+
+                if (filmStrip.classList.contains("slide-left")) return;
+
+
+                sessionStorage.setItem("pageTransition", "film-grow");
+
+                filmStrip.classList.add("slide-left");
+                document.body.classList.add("page-exit");
+
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 850);
+            });
+        });
+    });
+</script>

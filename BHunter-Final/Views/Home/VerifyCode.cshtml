@@ -1,0 +1,55 @@
+﻿@model BHunter_Final.Models.VerifyCode
+@{
+    Layout = null;
+    ViewData["Title"] = "Verify Code";
+
+}
+
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+
+<div class="login-page" id="loginPage">
+    <div class="film-stage" id="filmStage">
+        <div class="film-background">
+
+            <div class="film-holes top">
+                @for (int i = 0; i < 18; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+
+            <div class="film-center">
+                <div class="form-scroll-area">
+                    <div class="login-card">
+                        <img src="~/images/SilverScreenLogo.png" alt="Silver Screen Society Logo" class="logo-img" />
+
+                        <h1 class="login-title">Verify Code</h1>
+
+                        <form asp-action="VerifyCode" asp-controller="Home" method="post" class="login-form" id="verifyCode">
+                            @Html.AntiForgeryToken()
+
+
+                            <input asp-for="Email" type="hidden" />
+                            <input asp-for="Code" placeholder="Code" class="login-input" />
+                            <span asp-validation-for="Code" class="text-danger"></span>
+
+                            <button type="submit" class="login-btn">Verify Code</button>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="film-holes bottom">
+                @for (int i = 0; i < 18; i++)
+                {
+                    <span class="hole"></span>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
